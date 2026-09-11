@@ -186,7 +186,6 @@ public class UserService {
             payload.put("contactNo", user.getContactNo());
             payload.put("about", user.getAbout() != null ? user.getAbout() : "");
 
-            // Image URL එක Cache Busting පාරක් දමා fast load වෙන ලෙස සකස් කර ඇත
             String imgUrl = ProfileService.getProfileUrl(userId);
             if (imgUrl != null && !imgUrl.isEmpty()) {
                 payload.put("profileImage", imgUrl + "?t=" + System.currentTimeMillis());
