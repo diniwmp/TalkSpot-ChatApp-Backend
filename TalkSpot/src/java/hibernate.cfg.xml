@@ -6,14 +6,21 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/talkspot?useSSL=false</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/talkspot?useSSL=false&amp;nullCatalogMeansCurrent=true</property>        
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">pw</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>  
         <property name="hibernate.show_sql">true</property>
+        
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+    
         <mapping class="entity.User"/>
         <mapping class="entity.Chat"/>
         <mapping class="entity.FriendList"/>
+        <mapping class="entity.UserStatus"/>
+        <mapping class="entity.CallLog"/>
     </session-factory>
 </hibernate-configuration>
